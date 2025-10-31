@@ -217,8 +217,8 @@ export async function getAiJobListingSearchResults(
 }
 
 async function getJobListing(id: string, orgId: string) {
-  "use cache";
-  cacheTag(getJobListingIdTag(id));
+  
+  // cacheTag(getJobListingIdTag(id));
 
   return db.query.JobListingTable.findFirst({
     where: and(
@@ -229,8 +229,8 @@ async function getJobListing(id: string, orgId: string) {
 }
 
 async function getPublicJobListings() {
-  "use cache";
-  cacheTag(getJobListingGlobalTag());
+  
+  // cacheTag(getJobListingGlobalTag());
 
   return db.query.JobListingTable.findMany({
     where: eq(JobListingTable.status, "published"),

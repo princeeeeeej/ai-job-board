@@ -26,8 +26,8 @@ export async function getCurrentOrganization({ allData = false } = {}) {
 }
 
 async function getUser(id: string) {
-  "use cache"
-  cacheTag(getUserIdTag(id))
+  
+  // cacheTag(getUserIdTag(id))
 
   return db.query.UserTable.findFirst({
     where: eq(UserTable.id, id),
@@ -35,8 +35,8 @@ async function getUser(id: string) {
 }
 
 async function getOrganization(id: string) {
-  "use cache"
-  cacheTag(getOrganizationIdTag(id))
+  
+  // cacheTag(getOrganizationIdTag(id))
 
   return db.query.OrganizationTable.findFirst({
     where: eq(OrganizationTable.id, id),

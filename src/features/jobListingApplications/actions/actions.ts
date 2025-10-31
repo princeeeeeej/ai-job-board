@@ -172,8 +172,8 @@ export async function updateJobListingApplicationRating(
 }
 
 async function getPublicJobListing(id: string) {
-  "use cache";
-  cacheTag(getJobListingIdTag(id));
+  
+  // cacheTag(getJobListingIdTag(id));
 
   return db.query.JobListingTable.findFirst({
     where: and(
@@ -185,8 +185,8 @@ async function getPublicJobListing(id: string) {
 }
 
 async function getJobListing(id: string) {
-  "use cache";
-  cacheTag(getJobListingIdTag(id));
+  
+  // cacheTag(getJobListingIdTag(id));
 
   return db.query.JobListingTable.findFirst({
     where: eq(JobListingTable.id, id),
@@ -195,8 +195,8 @@ async function getJobListing(id: string) {
 }
 
 async function getUserResume(userId: string) {
-  "use cache";
-  cacheTag(getUserResumeIdTag(userId));
+  
+  // cacheTag(getUserResumeIdTag(userId));
 
   return db.query.UserResumeTable.findFirst({
     where: eq(UserResumeTable.userId, userId),

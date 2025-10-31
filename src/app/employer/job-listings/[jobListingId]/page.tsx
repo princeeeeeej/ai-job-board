@@ -320,8 +320,8 @@ async function Applications({ jobListingId }: { jobListingId: string }) {
 }
 
 async function getJobListingApplications(jobListingId: string) {
-  "use cache"
-  cacheTag(getJobListingApplicationJobListingTag(jobListingId))
+  
+  // cacheTag(getJobListingApplicationJobListingTag(jobListingId))
 
   const data = await db.query.JobListingApplicationTable.findMany({
     where: eq(JobListingApplicationTable.jobListingId, jobListingId),
@@ -351,17 +351,17 @@ async function getJobListingApplications(jobListingId: string) {
     },
   })
 
-  data.forEach(({ user }) => {
-    cacheTag(getUserIdTag(user.id))
-    cacheTag(getUserResumeIdTag(user.id))
-  })
+  // data.forEach(({ user }) => {
+  //   cacheTag(getUserIdTag(user.id))
+  //   cacheTag(getUserResumeIdTag(user.id))
+  // })
 
   return data
 }
 
 async function getJobListing(id: string, orgId: string) {
-  "use cache"
-  cacheTag(getJobListingIdTag(id))
+  
+  // cacheTag(getJobListingIdTag(id))
 
   return db.query.JobListingTable.findFirst({
     where: and(

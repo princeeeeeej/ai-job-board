@@ -36,8 +36,8 @@ export async function hasReachedMaxFeaturedJobListings() {
 }
 
 async function getPublishedJobListingsCount(orgId: string) {
-  "use cache"
-  cacheTag(getJobListingOrganizationTag(orgId))
+  
+  // cacheTag(getJobListingOrganizationTag(orgId))
 
   const [res] = await db
     .select({ count: count() })
@@ -52,8 +52,8 @@ async function getPublishedJobListingsCount(orgId: string) {
 }
 
 async function getFeaturedJobListingsCount(orgId: string) {
-  "use cache"
-  cacheTag(getJobListingOrganizationTag(orgId))
+  
+  // cacheTag(getJobListingOrganizationTag(orgId))
 
   const [res] = await db
     .select({ count: count() })
