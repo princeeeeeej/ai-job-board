@@ -8,7 +8,7 @@ export default function NewJobListingPage(){
             <p className="text-muted-foreground mb-6">This does not post the listing yet. It just save a draft</p>
             <Card>
                 <CardContent>
-                    <JobListingForm />
+                    <JobListingForm/>
                 </CardContent>
             </Card>
         </div>
