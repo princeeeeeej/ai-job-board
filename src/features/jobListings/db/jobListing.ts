@@ -1,7 +1,6 @@
 import { db } from "@/drizzle/db";
 import { JobListingTable } from "@/drizzle/schema";
 import { eq } from "drizzle-orm";
-import { revalidateJobListingCache } from "./cache/jobListings";
 
 export async function insertJobListing(
   jobListing: typeof JobListingTable.$inferInsert
@@ -14,7 +13,7 @@ export async function insertJobListing(
       organizationId: JobListingTable.organizationId,
     })
 
-    revalidateJobListingCache(newListing)
+    // revalidateJobListingCache(newListing)
 
   return newListing
 }
@@ -33,7 +32,7 @@ export async function updatedJobListing(
       organizationId: JobListingTable.organizationId
     })
 
-    revalidateJobListingCache(updatedListing)
+    // revalidateJobListingCache(updatedListing)
 
     return updatedListing
 }
@@ -48,7 +47,7 @@ export async function deleteJobListing(id: string){
       organizationId: JobListingTable.organizationId
     })
 
-    revalidateJobListingCache(deletedJobListing)
+    // revalidateJobListingCache(deletedJobListing)
 
     return deletedJobListing
 }

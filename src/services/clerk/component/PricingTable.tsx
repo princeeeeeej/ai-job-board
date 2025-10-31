@@ -1,5 +1,5 @@
 import { PricingTable as ClerkPricingTable } from "@clerk/nextjs";
 
 export function PricingTable(){
-    return <ClerkPricingTable forOrganizations newSubscriptionRedirectUrl="/employer/pricing" />
+    return <ClerkPricingTable for="organization" newSubscriptionRedirectUrl="/employer/pricing" />
 }

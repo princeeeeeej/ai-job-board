@@ -7,8 +7,6 @@ import {
   JobListingTable,
   UserResumeTable,
 } from "@/drizzle/schema";
-import { getJobListingIdTag } from "@/features/jobListings/db/cache/jobListings";
-import { getUserResumeIdTag } from "@/features/users/db/cache/userResumes";
 
 import { and, eq } from "drizzle-orm";
 import { cacheTag } from "next/dist/server/use-cache/cache-tag";

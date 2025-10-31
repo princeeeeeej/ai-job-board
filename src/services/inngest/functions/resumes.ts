@@ -58,8 +58,17 @@ export const createAiSummaryOfUploadedResume = inngest.createFunction(
 
     await step.run("save-ai-summary", async () => {
       // Safely extract summary text
-      const message =
-        result?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || "N/A";
+      const parts = result?.candidates?.[0]?.content?.parts;
+
+      // Explicit type assertion + guard
+      const textPart = Array.isArray(parts)
+        ? (parts.find(
+            (part): part is { text: string } =>
+              typeof (part as any).text === "string"
+          ) ?? null)
+        : null;
+
+      const message = textPart?.text?.trim() || "N/A";
 
       if (message === "N/A" || message.length === 0) return;
 

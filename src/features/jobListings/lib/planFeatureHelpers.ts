@@ -1,4 +1,3 @@
-import { getJobListingOrganizationTag } from "../db/cache/jobListings"
 import { cacheTag } from "next/dist/server/use-cache/cache-tag"
 import { db } from "@/drizzle/db"
 import { JobListingTable } from "@/drizzle/schema"

@@ -1,6 +1,5 @@
 import { db } from "@/drizzle/db"
 import { UserResumeTable } from "@/drizzle/schema"
-import { revalidateUserResumeCache } from "./cache/userResumes"
 import { eq } from "drizzle-orm"
 
 export async function upsertUserResume(
@@ -15,7 +14,7 @@ export async function upsertUserResume(
       set: data,
     })
 
-  revalidateUserResumeCache(userId)
+  // revalidateUserResumeCache(userId)
 }
 
 export async function updateUserResume(
@@ -27,5 +26,5 @@ export async function updateUserResume(
     .set(data)
     .where(eq(UserResumeTable.userId, userId))
 
-  revalidateUserResumeCache(userId)
+  // revalidateUserResumeCache(userId)
 }

@@ -1,6 +1,5 @@
 import { db } from "@/drizzle/db"
 import { OrganizationUserSettingsTable } from "@/drizzle/schema"
-import { revalidateOrganizationUserSettingsCache } from "./cache/organizationUserSettings"
 import { and, eq } from "drizzle-orm"
 
 export async function insertOrganizationUserSettings(
@@ -11,7 +10,7 @@ export async function insertOrganizationUserSettings(
     .values(settings)
     .onConflictDoNothing()
 
-  revalidateOrganizationUserSettingsCache(settings)
+  // revalidateOrganizationUserSettingsCache(settings)
 }
 
 export async function updateOrganizationUserSettings(
@@ -40,7 +39,7 @@ export async function updateOrganizationUserSettings(
       set: settings,
     })
 
-  revalidateOrganizationUserSettingsCache({ userId, organizationId })
+  // revalidateOrganizationUserSettingsCache({ userId, organizationId })
 }
 
 export async function deleteOrganizationUserSettings({
@@ -59,5 +58,5 @@ export async function deleteOrganizationUserSettings({
       )
     )
 
-  revalidateOrganizationUserSettingsCache({ userId, organizationId })
+  // revalidateOrganizationUserSettingsCache({ userId, organizationId })
 }

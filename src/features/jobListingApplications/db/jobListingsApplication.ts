@@ -1,14 +1,13 @@
 import { db } from "@/drizzle/db"
 import { JobListingApplicationTable } from "@/drizzle/schema"
 import { and, eq } from "drizzle-orm"
-import { revalidateJobListingApplicationCache } from "./cache/jobListingsApplication"
 
 export async function insertJobListingApplication(
   application: typeof JobListingApplicationTable.$inferInsert
 ) {
   await db.insert(JobListingApplicationTable).values(application)
 
-  revalidateJobListingApplicationCache(application)
+  // revalidateJobListingApplicationCache(application)
 }
 
 export async function updateJobListingApplication(
@@ -31,5 +30,5 @@ export async function updateJobListingApplication(
       )
     )
 
-  revalidateJobListingApplicationCache({ jobListingId, userId })
+  // revalidateJobListingApplicationCache({ jobListingId, userId })
 }

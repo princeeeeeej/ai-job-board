@@ -20,20 +20,16 @@ import {
   ApplicationTable,
   SkeletonApplicationTable,
 } from "@/features/jobListingApplications/components/ApplicationTable"
-import { getJobListingApplicationJobListingTag } from "@/features/jobListingApplications/db/cache/jobListingsApplication"
 import {
   deleteJobListing,
   toggleJobListingFeatured,
   toggleJobListingStatus,
 } from "@/features/jobListings/actions/actions"
 import { JobListingBadges } from "@/features/jobListings/components/JobListingBadges"
-import { getJobListingIdTag } from "@/features/jobListings/db/cache/jobListings"
 import { formatJobListingStatus } from "@/features/jobListings/lib/formatters"
 import { hasReachedMaxFeaturedJobListings, hasReachedMaxPublishedJobListings } from "@/features/jobListings/lib/planFeatureHelpers"
 import { getNextJobListingStatus } from "@/features/jobListings/lib/utilis"
 
-import { getUserResumeIdTag } from "@/features/users/db/cache/userResumes"
-import { getUserIdTag } from "@/features/users/db/cache/users"
 import { getCurrentOrganization } from "@/services/clerk/lib/getCurrentUser"
 import { hasOrgUserPermission } from "@/services/clerk/lib/orgUserPermissions"
 import { Action } from "@mdxeditor/editor"

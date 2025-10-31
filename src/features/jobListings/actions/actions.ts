@@ -12,10 +12,7 @@ import {
 import { db } from "@/drizzle/db";
 import { and, eq } from "drizzle-orm";
 import { JobListingTable } from "@/drizzle/schema";
-import {
-  getJobListingGlobalTag,
-  getJobListingIdTag,
-} from "../db/cache/jobListings";
+
 import { cacheTag } from "next/dist/server/use-cache/cache-tag";
 import { hasOrgUserPermission } from "@/services/clerk/lib/orgUserPermissions";
 import { getMatchingJobListings } from "@/services/inngest/ai/getMatchingJobListings";
